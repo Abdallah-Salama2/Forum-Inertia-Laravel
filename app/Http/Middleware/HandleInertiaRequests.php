@@ -37,7 +37,7 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => $request->user(),
             ],
-            'topics'=>TopicResource::collection(Topic::orderBY('name','asc')->get()),
+            'topics'=>TopicResource::collection(Topic::orderBY('title','asc')->get()),
             'ziggy' => fn () => [
                 ...(new Ziggy)->toArray(),
                 'location' => $request->url(),

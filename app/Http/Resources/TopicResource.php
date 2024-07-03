@@ -19,6 +19,6 @@ class TopicResource extends JsonResource
 //            'name' => $this->name,
 //            'slug' => $this->slug,
 //        ];
-        return $this->only('id','name','slug');
+        return $this->only('id','title','slug');
     }
 }

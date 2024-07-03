@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('discussions', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('set null');
+            $table->foreignId('topic_id')->constrained();
+            $table->string('title')->nullable();
+            $table->string('slug')->nullable()->unique();
             $table->timestamps();
         });
     }
