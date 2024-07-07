@@ -21,4 +21,17 @@ class Discussion extends Model
     {
         return $this->belongsTo(Topic::class);
     }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+    //First Post of Discussion
+    public function post()
+    {
+        return $this->hasOne(Post::class)->whereNull('parent_id');
+    }
 }
