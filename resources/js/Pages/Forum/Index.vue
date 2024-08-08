@@ -10,7 +10,8 @@ import Pagination from "@/Components/Pagination.vue";
 import Navigation from "@/Components/Forum/Navigation.vue";
 
 defineProps({
-    discussions: Object
+    discussions: Object,
+    query:Object
 })
 </script>
 
@@ -21,12 +22,13 @@ defineProps({
         <!--  <template #side> it will detect the slot with name side-->
 
         <template #side>
-            <Navigation></Navigation>
+            <Navigation :query="query"></Navigation>
         </template>
         <!--  right in forumn layout-->
         <div class="space-y-6">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
+
                     <div>
                         <InputLabel for="topic" class="sr-only ">Topic</InputLabel>
                         <Select id="topic">

@@ -15,10 +15,11 @@ use Spatie\QueryBuilder\QueryBuilder;
 class ForumIndexController extends Controller
 {
     //
-    public function __invoke()
+    public function __invoke(Request $request)
     {
         // TODO: Implement __invoke() method.
         return Inertia::render('Forum/Index', [
+            'query'=>(object) $request->query(),
             'discussions' => DiscusssionResource::collection(
                 QueryBuilder::for(Discussion::class)
                     ->allowedFilters($this->allowedFilters())
@@ -27,7 +28,7 @@ class ForumIndexController extends Controller
                     ->OrderByPinned()
                     ->OrderByLastPost()//implmented
 //                    ->latest() //remove when implments ordering by last post
-                    ->paginate(10)
+                    ->paginate(1)->appends($request->query())
             ),
 
         ]);
