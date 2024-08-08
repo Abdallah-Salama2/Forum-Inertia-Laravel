@@ -7,6 +7,7 @@ import InputLabel from "@/Components/InputLabel.vue";
 import Discussion from "@/Components/Forum/Discussion.vue";
 import {definePosition} from "@meforma/vue-toaster/src/defaults/positions.js";
 import Pagination from "@/Components/Pagination.vue";
+import Navigation from "@/Components/Forum/Navigation.vue";
 
 defineProps({
     discussions: Object
@@ -20,11 +21,7 @@ defineProps({
         <!--  <template #side> it will detect the slot with name side-->
 
         <template #side>
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    Side
-                </div>
-            </div>
+            <Navigation></Navigation>
         </template>
         <!--  right in forumn layout-->
         <div class="space-y-6">
